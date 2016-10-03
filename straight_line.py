@@ -24,8 +24,16 @@ class Point(object):
 
 def create_line(p1, p2):
     '''
-    to do
+    given two point tuples, returns m and b
+    m will be set to 'V' if vertical
     '''
+    if p1.x == p2.x:
+        m = 'V'
+        b = p1.x
+    else:
+        m = (p1.y - p2.y) / float(p1.x - p2.x)
+        b = p1.y - m * p1.x
+    return m,b
 
 with open(sys.argv[1]) as FH:
     for line in FH:
